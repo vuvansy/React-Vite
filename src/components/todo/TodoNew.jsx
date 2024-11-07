@@ -8,6 +8,10 @@ const TodoNew = (props) => {
     const { addNewTodo } = props;
 
     const handleClick = () => {
+        if (!valueInput) {
+            alert("Empty todo");
+            return;
+        }
         addNewTodo(valueInput);
         setValueInput("");
     };
