@@ -1,12 +1,19 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
 const TodoData = (props) => {
-    const { name, age, data } = props;
-    // console.log(data);
+    const { todoList } = props;
+
     return (
         <div className="todo-data">
-            <div>My name is {name} </div>
-            <div> Learning React </div>
-            <div> Watching Youtube</div>
-            <div>{JSON.stringify(props.todoList)}</div>
+            {todoList.map((item, index) => {
+                console.log(">>> check map: ", item, index);
+                return (
+                    <div className="todo-item">
+                        <div> {item.name}</div>
+                        <button>Delete</button>
+                    </div>
+                );
+            })}
         </div>
     );
 };
