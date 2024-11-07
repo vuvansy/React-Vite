@@ -1,21 +1,27 @@
 import "./style.css";
 /**
  * 
- JSX cho phép bạn code HTML trong file Javascript
- 1.Single Root
- JSX chỉ có 1 cha duy nhất
- 2. Fragment
- Fragment (mảnh vỡ) giúp bạn viết code ngắn đi, và không render “thừa html”
- 3. Sử dụng CSS
- Lưu ý: className
- Không dùng từ “class” với JSX, vì class là  keyword “lớp” của javascript
- Lưu ý về inline style (viết theo quy tắc của object)
+ Dữ liệu nguyên thủy: string, number, boolean, undefined, null
+ Dữ liệu object (array)
+
  */
 
 const MyComponent = () => {
+    // const hoidanit = "eric 1"; //string
+    // const hoidanit = 25; //number
+    // const hoidanit = true; //boolean
+    // const hoidanit = undefined;
+    // const hoidanit = null;
+    const hoidanit = [1, 2, 3];
+    // const hoidanit = {
+    //     name: "hoidanit",
+    //     age: 25
+    // }
+
     return (
         <>
-            <div>My Component</div>
+            <div> {JSON.stringify(hoidanit)} & hoidanit update</div>
+            <div>{console.log("ERIC")}</div>
             <div className="child" style={{ borderRadius: "10px" }}>
                 child
             </div>
