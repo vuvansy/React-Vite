@@ -3,14 +3,17 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
+//Lưu ý: tên component bắt buộc viết hoa chữ cái đầu tiên
+//Component = HTML + CSS + Javascript
+//Sử dụng Component như là 1 thẻ tag của HTML
+
+const MyComponent = () => {
+    return <div>Test Component</div>; //Tag
+};
+
 const App = () => {
     const [count, setCount] = useState(0);
 
-    const myFunction = () => {
-        console.log(">>> Run my arrow FC");
-    };
-
-    myFunction();
     return (
         <>
             <div>
@@ -26,6 +29,7 @@ const App = () => {
                 </a>
             </div>
             <h1>Hello World </h1>
+            <MyComponent />
             <div className="card">
                 <button onClick={() => setCount((count) => count + 1)}>
                     count is {count}
