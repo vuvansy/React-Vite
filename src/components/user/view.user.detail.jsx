@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Drawer } from "antd";
+import { Button, Drawer } from "antd";
 
 const ViewUserDetail = (props) => {
     const { dataDetail, setDataDetail, isDetailOpen, setIsDetailOpen } = props;
@@ -7,6 +7,7 @@ const ViewUserDetail = (props) => {
     return (
         <>
             <Drawer
+                width={"40vw"}
                 title="Chi tết User"
                 onClose={() => {
                     setDataDetail(null);
@@ -23,6 +24,35 @@ const ViewUserDetail = (props) => {
                         <p>Email: {dataDetail.email}</p>
                         <br></br>
                         <p>Phone Number: {dataDetail.phone}</p>
+                        <br></br>
+                        <p>Avatar</p>
+                        <div>
+                            <img
+                                height={200}
+                                width={200}
+                                src={`${
+                                    import.meta.env.VITE_BACKEND_URL
+                                }/images/avatar/${dataDetail.avatar}`}
+                            />
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="btnUpload"
+                                style={{
+                                    display: "block",
+                                    width: "fit-content",
+                                    marginTop: "15px",
+                                    padding: "5px 10px",
+                                    background: "orange",
+                                    borderRadius: "5px",
+                                    cursor: "pointer",
+                                }}
+                            >
+                                Upload Avatar
+                            </label>
+                            <input type="file" hidden id="btnUpload" />
+                        </div>
+                        
                     </>
                 ) : (
                     <>
