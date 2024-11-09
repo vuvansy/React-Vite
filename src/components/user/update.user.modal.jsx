@@ -18,7 +18,7 @@ const UpdateUserModal = (props) => {
 
     //Nếu như giá trị của dataUpdate thay đổi thì hàm useEffect được cập nhật lại
     useEffect(() => {
-        console.log("check dataUpdate: ", dataUpdate);
+        // console.log("check dataUpdate: ", dataUpdate);
         if (dataUpdate) {
             setId(dataUpdate._id);
             setFullName(dataUpdate.fullName);
