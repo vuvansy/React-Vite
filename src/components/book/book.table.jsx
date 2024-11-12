@@ -2,6 +2,7 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, Popconfirm, Table } from "antd";
 import { useEffect, useState } from "react";
 import { fetchAllBookAPI } from "../../services/api.service";
+import BookDetail from "./book.detail";
 const BookTable = () => {
     const [dataBook, setDataBook] = useState([]);
     const [current, setCurrent] = useState(1);
@@ -27,9 +28,9 @@ const BookTable = () => {
             setTotal(res.data.meta.total);
         }
     };
-    
+
     const handleDeleteBook = async (id) => {};
-    
+
     const onChange = (pagination, filters, sorter, extra) => {
         // setCurrent, setPageSize
         //nếu thay đổi trang : current
@@ -56,6 +57,7 @@ const BookTable = () => {
             title: "Id",
             dataIndex: "_id",
             render: (_, record) => {
+                // console.log(record);
                 return (
                     <a
                         href="#"
@@ -151,6 +153,12 @@ const BookTable = () => {
                     },
                 }}
                 onChange={onChange}
+            />
+            <BookDetail
+                dataDetail={dataDetail}
+                setDataDetail={setDataDetail}
+                isDetailOpen={isDetailOpen}
+                setIsDetailOpen={setIsDetailOpen}
             />
         </>
     );
