@@ -3,6 +3,7 @@ import { Button, Popconfirm, Table } from "antd";
 import { useEffect, useState } from "react";
 import { fetchAllBookAPI } from "../../services/api.service";
 import BookDetail from "./book.detail";
+import CreateBookControl from "./create.book.control";
 const BookTable = () => {
     const [dataBook, setDataBook] = useState([]);
     const [current, setCurrent] = useState(1);
@@ -14,6 +15,8 @@ const BookTable = () => {
 
     const [dataUpdate, setDataUpdate] = useState(null);
     const [isModalUpdateOpen, setIsModalUpdateOpen] = useState(false);
+
+    const [isCreateOpen, setIsCreateOpen] = useState(false);
 
     useEffect(() => {
         loadBook();
@@ -126,13 +129,15 @@ const BookTable = () => {
         <>
             <div
                 style={{
-                    marginTop: "10px",
+                    margin: "10px 0",
                     display: "flex",
                     justifyContent: "space-between",
                 }}
             >
                 <h3>Table Book</h3>
-                <Button type="primary">Create Book</Button>
+                <Button type="primary" onClick={() => setIsCreateOpen(true)}>
+                    Create Book
+                </Button>
             </div>
             <Table
                 columns={columns}
@@ -159,6 +164,11 @@ const BookTable = () => {
                 setDataDetail={setDataDetail}
                 isDetailOpen={isDetailOpen}
                 setIsDetailOpen={setIsDetailOpen}
+            />
+            <CreateBookControl
+                isCreateOpen={isCreateOpen}
+                setIsCreateOpen={setIsCreateOpen}
+                loadBook={loadBook}
             />
         </>
     );
